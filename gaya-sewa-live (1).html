@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gaya Sewa – Sewa aur Delivery, Gaya mein</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafdf3;--surface:#fff;--ink:#0f3d26;--muted:#3f6b52;--accent:#ffd633;--accent-ink:#0f3d26;--link:#1a6b3c;--line:#cfe3d5;--field:#5f8c73;--focus:#1a6b3c;--ok:#1a6b3c;--top:#1a6b3c;--on-top:#fff;--gold:#e0b100;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b2a1b;--surface:#123a27;--ink:#f6fbe9;--muted:#b9d6c2;--link:#ffe27a;--line:#2b5c42;--field:#7fae93;--focus:#ffd633;--ok:#8fe0ae;--top:#0f3a25}}
+:root[data-theme="dark"]{--bg:#0b2a1b;--surface:#123a27;--ink:#f6fbe9;--muted:#b9d6c2;--link:#ffe27a;--line:#2b5c42;--field:#7fae93;--focus:#ffd633;--ok:#8fe0ae;--top:#0f3a25}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Poppins",system-ui,sans-serif;font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:"Baloo 2","Poppins",sans-serif;font-weight:700;margin:0;line-height:1.15}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+.top{background:var(--top);color:var(--on-top);border-bottom:6px solid var(--gold)}
+.brand{padding:18px 0 4px;font-family:"Baloo 2",sans-serif;font-weight:800;font-size:1.4rem;color:var(--accent)}
+.hero{padding:10px 0 30px}
+.hero h1{font-size:clamp(2rem,6vw,3.3rem);max-width:16ch;font-weight:800}
+.hero p{margin:10px 0 0;max-width:46ch;opacity:.95}
+.search{margin-top:18px;max-width:520px}
+.offer{display:inline-block;margin-top:14px;background:var(--accent);color:var(--accent-ink);font-weight:600;border-radius:999px;padding:6px 14px;font-size:.9rem}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--field);border-radius:10px;padding:11px 13px;width:100%}
+::placeholder{color:var(--muted);opacity:1}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.cat{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:16px 12px;text-align:left;font:inherit;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;gap:4px}
+.cat:hover{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+.cat .e{font-size:1.9rem}
+.cat b{font-weight:600}
+.cat small{color:var(--muted)}
+section{padding:20px 0}
+h2{font-size:1.6rem;margin-bottom:14px;display:inline-block;border-bottom:4px solid var(--gold)}
+.hidden{display:none!important}
+.back{background:none;border:0;color:var(--link);font:inherit;font-weight:600;cursor:pointer;padding:6px 0;margin-bottom:6px}
+.sortbar{display:flex;gap:8px;margin:0 0 12px;flex-wrap:wrap}
+.chip{background:var(--surface);border:1.5px solid var(--field);color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;font-size:.9rem;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.prov{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap}
+.prov h3{font-size:1.2rem}
+.prov p{margin:2px 0 0;color:var(--muted);font-size:.92rem}
+.price{font-weight:600}
+.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer}
+.btn.alt{background:transparent;color:var(--link);border:1.5px solid var(--link)}
+form{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:12px;max-width:540px}
+label{display:grid;gap:5px;font-weight:600;font-size:.92rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts{display:flex;gap:10px;flex-wrap:wrap}
+.opts label{display:flex;align-items:center;gap:8px;border:1.5px solid var(--field);border-radius:10px;padding:9px 12px;font-weight:500;cursor:pointer}
+.opts input,.chk input{width:auto;accent-color:var(--link)}
+.chk{display:flex;align-items:center;gap:8px;font-weight:500}
+.note{color:var(--muted);font-size:.88rem}
+.done{border-left:6px solid var(--ok);background:var(--surface);border-radius:12px;padding:16px 18px;max-width:540px}
+.done h3{color:var(--ok);margin-bottom:6px;font-size:1.4rem}
+.bk{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:8px;font-size:.92rem;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.step{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--gold);border-radius:14px;padding:14px}
+.step b{font-family:"Baloo 2",sans-serif;font-size:1.1rem}
+.step p{margin:4px 0 0;color:var(--muted);font-size:.9rem}
+.join{border-top:1.5px solid var(--line)}
+footer{padding:30px 0 40px;color:var(--muted);font-size:.88rem}
+#toast{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:10px;right:10px;max-width:520px;margin:0 auto;background:var(--accent);color:var(--accent-ink);font-weight:600;border-radius:14px;padding:14px 16px;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:30;cursor:pointer}
+@media (max-width:480px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <div class="brand" style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span>Gaya Sewa</span><button class="chip" id="ppbtn" type="button">🔔 Partner panel</button></div>
+  <div class="hero">
+    <h1>Sewa aur delivery, seedha ghar tak.</h1>
+    <p>Bijli, AC, plumbing se lekar kirana, dawai aur Gaya ke tilkut tak. Apne shehar ke bharosemand logon se.</p>
+    <div class="search"><input id="q" placeholder="Kya chahiye? jaise AC, dawai, tilkut" aria-label="Khojein"></div>
+    <span class="offer">Pehli booking par ₹50 off (namoona offer)</span>
+  </div>
+</div></div>
+
+<div class="wrap">
+<main>
+<div id="v-home">
+  <section>
+    <h2>Sewa chuniye</h2>
+    <div class="grid" id="cats-s"></div>
+  </section>
+  <section>
+    <h2>Delivery</h2>
+    <div class="grid" id="cats-d"></div>
+    <p class="note" id="nores" hidden>Kuch nahi mila. Doosra naam try kijiye.</p>
+  </section>
+  <section>
+    <h2>Kaise kaam karta hai</h2>
+    <div class="steps">
+      <div class="step"><b>1. Chuniye</b><p>Sewa ya delivery chuniye aur apna pasandida kaarigar ya dukaan dekhiye.</p></div>
+      <div class="step"><b>2. Book kijiye</b><p>Din, samay aur ghar par visit ya delivery ka tareeka chuniye.</p></div>
+      <div class="step"><b>3. Kaam ya delivery</b><p>Kaam ke baad cash ya UPI se bhugtan kijiye.</p></div>
+    </div>
+  </section>
+  <section id="mine" hidden>
+    <h2>Meri bookings</h2>
+    <div id="mylist"></div>
+  </section>
+  <section class="join">
+    <h2>Hamare saath kaam kijiye</h2>
+    <p class="note">Apni marzi se kamaiye. Pehle registration, phir document check, phir kaam shuru.</p>
+    <button class="btn" id="joinbtn">Partner banein</button>
+  </section>
+</div>
+
+<div id="v-partner" class="hidden">
+  <button class="back" data-go="home">&larr; Wapas</button><br>
+  <h2>Partner panel</h2>
+  <p class="note" id="pnote"></p>
+  <p id="grpw" hidden><a class="btn alt" id="grp" href="#" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">WhatsApp group se judiye</a></p>
+  <form id="pf">
+    <label>Aapka naam<input name="pn" id="pn" required></label>
+    <div><b style="font-size:.92rem">Kaun se kaam ke order chahiye?</b><div class="opts" id="pcs" style="margin-top:6px"></div><p class="note">Kuch na chunein to sabhi order milenge.</p></div>
+    <div><b style="font-size:.92rem">Kin mohalla ke order chahiye?</b><div class="opts" id="pas" style="margin-top:6px"></div></div>
+    <label>Mere paas ke order (GPS se)<select name="rad" id="prad"><option value="0">Band (sirf mohalla)</option><option value="3">3 km ke andar</option><option value="5">5 km ke andar</option><option value="10">10 km ke andar</option></select></label>
+    <button class="btn" type="submit">🔔 Alert chalu karein</button>
+    <p class="note" id="pst"></p>
+  </form>
+  <div id="plive" class="hidden">
+    <h2 style="margin-top:18px">Naye orders</h2>
+    <p><button class="btn alt" id="ptest" type="button">Test order bhejiye</button></p>
+    <div id="plist2"></div>
+  </div>
+</div>
+<div id="toast" role="alert" hidden></div>
+
+<div id="v-join" class="hidden">
+  <button class="back" data-go="home">&larr; Wapas</button><br>
+  <h2 id="jt"></h2>
+  <p class="note" id="jb"></p>
+  <form id="jf">
+    <label>Aap kya karna chahte hain?<select name="role" id="rsel"></select></label>
+    <div class="row">
+      <label>Aapka naam<input name="n" required autocomplete="name"></label>
+      <label>Mobile<input name="m" inputmode="tel" pattern="[0-9]{10}" maxlength="10" required autocomplete="tel"></label>
+    </div>
+    <label>Kis mohalla me kaam karenge<select name="a" id="ja"></select></label>
+    <div id="jx" style="display:grid;gap:12px"></div>
+    <label>Kab kaam kar sakte hain<select name="av"><option>Poora din</option><option>Subah</option><option>Shaam</option><option>Sirf weekend</option></select></label>
+    <p class="note" id="jdoc"></p>
+    <label class="chk"><input type="checkbox" name="ag" required> Mai verification ke liye document dikhane ko taiyaar hoon</label>
+    <button class="btn" type="submit">Registration bhejiye</button>
+  </form>
+  <div class="done hidden" id="jdone">
+    <h3>Registration mil gaya</h3>
+    <p id="jsum"></p>
+    <p class="note">Yeh prototype hai: abhi hamare paas message nahi jaata. Neeche se WhatsApp par bhejiye. Aage document check hoga, phir kaam shuru.</p>
+    <p><a class="btn" id="jwa" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">WhatsApp par bhejiye</a>
+    <button class="btn alt" data-go="home">Home</button></p>
+  </div>
+</div>
+
+<div id="v-list" class="hidden">
+  <button class="back" data-go="home">&larr; Wapas</button><br>
+  <h2 id="ltitle"></h2>
+  <div class="sortbar">
+    <button class="chip" data-s="r" aria-pressed="true">Sabse achhi rating</button>
+    <button class="chip" data-s="a" aria-pressed="false">A se Z</button>
+  </div>
+  <div id="plist"></div>
+</div>
+
+<div id="v-book" class="hidden">
+  <button class="back" data-go="list">&larr; Wapas</button><br>
+  <h2 id="btitle"></h2>
+  <form id="bf">
+    <div id="modewrap"><label>Tareeka</label><div class="opts" id="modes"></div></div>
+    <div class="row">
+      <label>Aapka naam<input name="n" required autocomplete="name"></label>
+      <label>Mobile<input name="m" inputmode="tel" pattern="[0-9]{10}" maxlength="10" required autocomplete="tel"></label>
+    </div>
+    <label>Mohalla<select name="a" id="area"></select></label>
+    <label>Pata / landmark<input name="l" required placeholder="jaise: mandir ke paas, 2nd floor"></label>
+    <div class="row">
+      <label>Din<input type="date" name="d" id="date" required></label>
+      <label>Samay<select name="t" id="slot"></select></label>
+    </div>
+    <label><span id="xl">Kaam ke baare mein</span><textarea name="x" id="x" rows="3"></textarea></label>
+    <label>Bhugtan<select name="p"><option>Cash</option><option>UPI</option></select></label>
+    <label class="chk" id="urgw"><input type="checkbox" name="u"> Turant chahiye (+₹100)</label>
+    <label class="chk"><input type="checkbox" id="geo"> Meri location bhi bhejiye (paas ke partner ko jaldi milega)</label>
+    <button class="btn" type="submit">Pakka kijiye</button>
+  </form>
+</div>
+
+<div id="v-done" class="hidden">
+  <div class="done">
+    <h3>Ho gaya!</h3>
+    <p id="dtxt"></p>
+    <p class="note">Yeh prototype hai: abhi kaarigar ko message nahi jaata. Neeche se WhatsApp par bhej sakte hain.</p>
+    <p><a class="btn" id="wa" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">WhatsApp par bhejiye</a>
+    <button class="btn alt" data-go="home">Home</button></p>
+  </div>
+</div>
+</main>
+<footer>Gaya Sewa. Dikhaye gaye kaarigar, dukaan aur daam namoone ke liye hain.</footer>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/* Firebase config yahan paste kijiye (SETUP-GUIDE.md dekhiye). null rakhne par demo mode chalega.
+   jaise: window.FB_CONFIG={apiKey:"...",authDomain:"...",projectId:"...",appId:"..."}; */
+window.FB_CONFIG=null;
+</script>
+<script>
+/* DISPATCH: aapka WhatsApp number (10 ank, jaise "9876543210"). GROUP: partner WhatsApp group ka invite link. */
+const DISPATCH="9229255775",GROUP="";
+const V="Ghar par visit",PK="Pickup aur wapas delivery",H="Home delivery",K="Khud lene aaunga";
+const CATS=[
+ {id:"elec",e:"💡",n:"Electrician",s:"Wiring, fan, switch",p:[["Ramesh Prasad",4.8,"₹199 se","Civil Lines, Station Road"],["Sunil Kumar",4.6,"₹149 se","Manpur, Delha"]]},
+ {id:"ac",e:"❄️",n:"AC repair",s:"Service, gas, install",p:[["Cool Point Gaya",4.7,"₹499 se","Sahebganj"],["Md. Irfan",4.5,"₹399 se","Civil Lines"]]},
+ {id:"plumb",e:"🚰",n:"Plumber",s:"Nal, tanki, pipe",p:[["Dinesh Mistri",4.6,"₹199 se","Delha, Manpur"],["Anil Sharma",4.4,"₹149 se","Station Road"]]},
+ {id:"clean",e:"🧹",n:"Ghar ki safai",s:"Deep clean, sofa, tanki",p:[["Shine Team",4.7,"₹899 se","Poore Gaya"]]},
+ {id:"tutor",e:"📚",n:"Home tutor",s:"Class 1–12, coaching",p:[["Amit Sir (Maths)",4.9,"₹300/ghanta","Manpur, Civil Lines"],["Neha Madam (Science)",4.7,"₹250/ghanta","Delha"]]},
+ {id:"paint",e:"🎨",n:"Painter",s:"Rang, putty, repair",p:[["Raju Painter",4.5,"₹14/sq ft se","Poore Gaya"]]},
+ {id:"carp",e:"🪚",n:"Carpenter",s:"Furniture, darwaza",p:[["Lakhan Mistri",4.6,"₹400/din se","Manpur, Delha"],["Wood Craft Gaya",4.7,"₹500/din se","Civil Lines"]]},
+ {id:"ro",e:"💧",n:"RO / Water purifier",s:"Service, filter",p:[["Pure Water Care",4.6,"₹299 se","Poore Gaya"],["Santosh RO Service",4.4,"₹249 se","Sahebganj, Manpur"]]},
+ {id:"mob",e:"📱",n:"Mobile / Laptop repair",s:"Screen, battery",pick:1,p:[["Digital Fix Gaya",4.7,"₹199 se","Station Road, Civil Lines"],["Mobile Doctor",4.5,"₹149 se","Delha, Sahebganj"]]},
+ {id:"laun",e:"🧺",n:"Laundry / Dhobi",s:"Dhulai, press, dry clean",pick:1,p:[["Clean Fold Gaya",4.6,"₹15/kapda se","Civil Lines, Manpur"],["Gaya Dry Clean",4.5,"₹25/kapda se","Station Road"]]},
+ {id:"taxi",e:"🚕",n:"Taxi / Driver",s:"Bodh Gaya, Rajgir",p:[["Magadh Cabs",4.7,"₹12/km se","Poore Gaya"],["Bodh Gaya Tours",4.8,"₹2200 (full day)","Bodh Gaya Road"]]},
+ {id:"kir",t:"d",e:"🛒",n:"Kirana aur sabzi",s:"Ration, fal, sabzi",p:[["Gaya Kirana Store",4.6,"Delivery ₹20, ₹299+ par free","Civil Lines, Station Road"],["Fresh Basket",4.5,"Delivery ₹25","Manpur, Delha"]]},
+ {id:"til",t:"d",e:"🍬",n:"Tilkut aur mithai",s:"Gaya ka mashhoor tilkut",p:[["Ramna Tilkut Bhandar",4.8,"Delivery ₹30","Poore Gaya"],["Magadh Sweets",4.6,"Delivery ₹20","Station Road, Sahebganj"]]},
+ {id:"med",t:"d",e:"💊",n:"Dawai",s:"Medicine, health items",p:[["Jan Seva Medical",4.7,"Delivery ₹15","Civil Lines, Manpur"],["Gaya Pharmacy",4.5,"Delivery ₹20","Delha, Station Road"]]},
+ {id:"tif",t:"d",e:"🍱",n:"Tiffin / khana",s:"Ghar ka khana, roz",p:[["Maa ka Tiffin",4.8,"₹70/tiffin, delivery free","Civil Lines, Manpur"],["Annapurna Kitchen",4.5,"₹60/tiffin, delivery ₹10","Station Road"]]}
+];
+const AREAS=["Civil Lines","Station Road","Sahebganj","Manpur","Delha","Bodh Gaya Road","Vishnupad ke paas","Anya"];
+const $=id=>document.getElementById(id);
+let cur=null,prov=null,sortBy="r";
+function show(v){["home","list","book","done","join","partner"].forEach(x=>$("v-"+x).classList.toggle("hidden",x!==v));window.scrollTo(0,0)}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function load(){try{return JSON.parse(localStorage.getItem("gs-bk")||"[]")}catch(e){return window.__bk||[]}}
+function save(a){window.__bk=a;try{localStorage.setItem("gs-bk",JSON.stringify(a))}catch(e){}}
+function cardHtml(c){return `<button class="cat" data-c="${c.id}"><span class="e" aria-hidden="true">${c.e}</span><b>${c.n}</b><small>${c.s}</small></button>`}
+function renderCats(f){
+  const t=(f||"").toLowerCase().trim();
+  const m=c=>!t||(c.n+" "+c.s).toLowerCase().includes(t);
+  const s=CATS.filter(c=>c.t!=="d"&&m(c)),d=CATS.filter(c=>c.t==="d"&&m(c));
+  $("cats-s").innerHTML=s.map(cardHtml).join("");$("cats-d").innerHTML=d.map(cardHtml).join("");
+  $("nores").hidden=s.length+d.length>0;
+}
+function renderMine(){
+  const b=load();$("mine").hidden=!b.length;
+  $("mylist").innerHTML=b.map((x,i)=>`<div class="bk"><span><b>${esc(x.svc)}</b> – ${esc(x.prov)}<br>${esc(x.mode)} · ${esc(x.d)}, ${esc(x.t)} · ${esc(x.a)}</span><button class="btn alt" data-x="${i}">Cancel</button></div>`).reverse().join("");
+}
+function renderProv(){
+  const l=cur.p.slice().sort((a,b)=>sortBy==="r"?b[1]-a[1]:a[0].localeCompare(b[0]));
+  $("plist").innerHTML=l.map(p=>`<div class="prov"><div><h3>${esc(p[0])}</h3><p>★ ${p[1]} · ${esc(p[3])}</p><span class="price">${esc(p[2])}</span></div><button class="btn" data-p="${cur.p.indexOf(p)}">${cur.t==="d"?"Order kijiye":"Book kijiye"}</button></div>`).join("");
+}
+function openCat(e){
+  const b=e.target.closest(".cat");if(!b)return;
+  cur=CATS.find(c=>c.id===b.dataset.c);
+  $("ltitle").textContent=cur.n+(cur.t==="d"?" – delivery":" – Gaya mein");
+  renderProv();show("list");
+}
+$("cats-s").addEventListener("click",openCat);$("cats-d").addEventListener("click",openCat);
+document.querySelector(".sortbar").addEventListener("click",e=>{
+  const b=e.target.closest(".chip");if(!b)return;sortBy=b.dataset.s;
+  document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b));renderProv();
+});
+$("plist").addEventListener("click",e=>{
+  const b=e.target.closest("[data-p]");if(!b)return;
+  prov=cur.p[+b.dataset.p];
+  const d=cur.t==="d";
+  $("btitle").textContent=(d?"Order: ":"Booking: ")+prov[0];
+  const modes=d?[H,K]:cur.pick?[V,PK]:[V];
+  $("modes").innerHTML=modes.map((m,i)=>`<label><input type="radio" name="mode" value="${m}"${i?"":" checked"}> ${m}</label>`).join("");
+  $("modewrap").classList.toggle("hidden",modes.length<2);
+  $("slot").innerHTML=(d?["Abhi (30–45 min)","Aaj shaam","Kal subah"]:["Subah 9–12","Dopahar 12–3","Shaam 3–7"]).map(s=>`<option>${s}</option>`).join("");
+  $("xl").textContent=d?"Kya chahiye? (list likhiye)":"Kaam ke baare mein";
+  $("x").required=d;$("x").placeholder=d?"jaise: 2 kg chawal, 1 litre tel":"Kya dikkat hai?";
+  $("urgw").classList.toggle("hidden",d);
+  show("book");
+});
+document.addEventListener("click",e=>{
+  const g=e.target.closest("[data-go]");if(g){if(g.dataset.go==="home")renderMine();show(g.dataset.go);return}
+  const x=e.target.closest("[data-x]");if(x){const a=load();a.splice(+x.dataset.x,1);save(a);renderMine()}
+});
+$("q").addEventListener("input",e=>renderCats(e.target.value));
+$("area").innerHTML=AREAS.map(a=>`<option>${a}</option>`).join("");
+$("ja").innerHTML=AREAS.map(a=>`<option>${a}</option>`).join("");
+const today=new Date().toISOString().slice(0,10);$("date").min=today;$("date").value=today;
+$("bf").addEventListener("submit",e=>{
+  e.preventDefault();
+  const f=Object.fromEntries(new FormData(e.target));
+  const mode=f.mode||V,urg=f.u?" (turant)":"";
+  save(load().concat({svc:cur.n,prov:prov[0],mode,n:f.n,m:f.m,a:f.a,l:f.l,d:f.d,t:f.t+urg,x:f.x,p:f.p}));
+  pushOrder({cid:cur.id,ty:cur.t==="d"?"d":"s",svc:cur.n,pn:prov[0],mode,n:f.n,m:f.m,a:f.a,l:f.l,d:f.d,t:f.t+urg,x:f.x||""},$("geo").checked);
+  $("dtxt").textContent=`${cur.n} – ${prov[0]}. ${mode}, ${f.d}, ${f.t}${urg}. ${f.a}, ${f.l}. Bhugtan: ${f.p}.`;
+  const msg=`Namaste, main ${f.n} (${f.m}). ${cur.n} (${mode}): ${f.d}, ${f.t}${urg}, ${f.a} (${f.l}). ${f.x||""} Bhugtan: ${f.p}.`;
+  $("wa").href="https://wa.me/"+(DISPATCH?"91"+DISPATCH:"")+"?text="+encodeURIComponent(msg);
+  e.target.reset();$("date").value=today;show("done");
+});
+const SK=["elec","ac","plumb","carp","ro","mob","paint","clean"];
+const ROLES={
+ del:{e:"🛵",n:"Delivery partner",s:"Order pahunchakar kamaiye",b:"Apne samay par kaam. Kirana, dawai, tilkut aur tiffin ke orders ghar-ghar pahunchaiye.",docs:"Aadhaar, passport photo, driving licence (bike ke liye) aur gaadi ke kagaz.",f:[["Aapke paas kya hai?","veh",["Bike / Scooty","Cycle","Abhi kuch nahi"]],["Driving licence","dl",["Hai","Nahi hai"]],["Smartphone","ph",["Hai","Nahi hai"]]]},
+ rep:{e:"🛠️",n:"Kaarigar (repair)",s:"Apna hunar, apne grahak",b:"Electrician, AC, plumber, carpenter, mobile repair jaisa koi bhi kaam. Grahak seedha aapko book karenge.",docs:"Aadhaar, passport photo aur aapke kaam ki photo ya kisi purane grahak ka reference.",ck:CATS.filter(c=>SK.includes(c.id)).map(c=>c.n),f:[["Kitne saal ka anubhav?","exp",["1 saal se kam","1–3 saal","3–5 saal","5 saal se zyada"]],["Apne auzaar hain?","tool",["Haan, poore","Kuch hain","Nahi"]]]},
+ tax:{e:"🚕",n:"Taxi / Car driver",s:"Apni gaadi ya driver ban kar",b:"Station, Bodh Gaya, Rajgir aur shehar ki booking par apni gaadi lagaiye ya driver ke roop me judiye.",docs:"Driving licence, passport photo; gaadi ho to RC, insurance aur permit.",f:[["Aap kya karna chahte hain?","tk",["Apni gaadi lagana","Sirf driver banna (gaadi nahi hai)"]],["Gaadi ka prakar","car",["Hatchback","Sedan","SUV / Innova","Auto / E-rickshaw","Gaadi nahi hai"]],["Gaadi ka number","no","jaise BR02 AB 1234 (optional)"],["Driving ka anubhav","exp",["1–3 saal","3–5 saal","5 saal se zyada"]]]},
+ shop:{e:"🏪",n:"Dukaandaar",s:"Apni dukaan delivery par laaiye",b:"Kirana, mithai, dawai ya tiffin: apni dukaan Gaya Sewa par dikhaiye aur online orders paaiye.",docs:"Dukaan ka pata aur photo; khane ya mithai ke liye FSSAI, dawai ke liye licence.",f:[["Dukaan ka naam","sn","Dukaan ka naam"],["Dukaan ka prakar","st",["Kirana / sabzi","Mithai / tilkut","Dawai","Tiffin / khana","Anya"]],["Delivery kaun karega?","sd",["Hum khud","Aap ke delivery partner"]]]}
+};
+let role=null;
+function fieldHtml(f){return Array.isArray(f[2])?`<label>${f[0]}<select name="${f[1]}">${f[2].map(o=>`<option>${o}</option>`).join("")}</select></label>`:`<label>${f[0]}<input name="${f[1]}" placeholder="${f[2]}"${f[2].includes("optional")?"":" required"}></label>`}
+function pickRole(v){
+  if(ROLES[v])return ROLES[v];
+  const [k,id]=v.split(":"),c=CATS.find(x=>x.id===id);
+  if(k==="svc")return {...ROLES.rep,ck:null,n:c.n,b:c.n+": "+c.s+". Grahak seedha aapko book karenge.",f:ROLES.rep.f.map(f=>f[1]==="tool"?["Zaroori saman / auzaar hain?","tool",f[2]]:f)};
+  return {...ROLES.shop,n:"Dukaandaar ("+c.n+")",f:ROLES.shop.f.filter(f=>f[1]!=="st"),b:"Apni "+c.n+" ki dukaan Gaya Sewa par dikhaiye aur online orders paaiye."};
+}
+$("rsel").innerHTML=`<optgroup label="Delivery"><option value="del">🛵 Delivery partner</option></optgroup>`+
+ `<optgroup label="Gaadi"><option value="tax">🚕 Taxi / Car driver</option></optgroup>`+
+ `<optgroup label="Sewa / Repair">${CATS.filter(c=>c.t!=="d"&&c.id!=="taxi").map(c=>`<option value="svc:${c.id}">${c.e} ${c.n}</option>`).join("")}</optgroup>`+
+ `<optgroup label="Dukaandaar">${CATS.filter(c=>c.t==="d").map(c=>`<option value="shop:${c.id}">${c.e} ${c.n}</option>`).join("")}</optgroup>`;
+function setRole(){
+  role=pickRole($("rsel").value);
+  $("jt").textContent="Partner banein";$("jb").textContent=role.b;
+  $("jdoc").textContent="Verification ke liye chahiye: "+role.docs+" Abhi koi document upload nahi karna hai.";
+  $("jx").innerHTML=role.f.map(fieldHtml).join("")+(role.ck?`<div><b style="font-size:.92rem">Kaun sa kaam aata hai?</b><div class="opts" style="margin-top:6px">${role.ck.map(c=>`<label><input type="checkbox" name="sk" value="${c}"> ${c}</label>`).join("")}</div></div>`:"");
+}
+$("rsel").addEventListener("change",setRole);
+$("joinbtn").addEventListener("click",()=>{$("jdone").classList.add("hidden");$("jf").classList.remove("hidden");setRole();show("join")});
+$("jf").addEventListener("submit",e=>{
+  e.preventDefault();
+  const fd=new FormData(e.target),g=k=>fd.get(k);
+  const lines=["Naam: "+g("n"),"Mobile: "+g("m"),"Mohalla: "+g("a")].concat(role.f.map(f=>f[0]+": "+(g(f[1])||"-")));
+  if(role.ck)lines.push("Kaam: "+(fd.getAll("sk").join(", ")||"nahi bataya"));
+  lines.push("Samay: "+g("av"));
+  try{const a=JSON.parse(localStorage.getItem("gs-pt")||"[]");a.push({r:role.n,l:lines});localStorage.setItem("gs-pt",JSON.stringify(a))}catch(err){}
+  $("jsum").textContent=role.n+": "+g("n")+", "+g("a");
+  $("jwa").href="https://wa.me/"+(DISPATCH?"91"+DISPATCH:"")+"?text="+encodeURIComponent("Namaste, main "+role.n+" ke roop me judna chahta hoon.\n"+lines.join("\n"));
+  e.target.reset();$("jf").classList.add("hidden");$("jdone").classList.remove("hidden");window.scrollTo(0,0);
+});
+let DB=null,UID="guest",store=null,P=null,ORD=[],first=true,unsub=null,ac=null;
+const ready=(async()=>{
+  try{if(window.claude&&claude.use){try{const u=await claude.use("user");if(u&&u.id)UID=String(await u.id())}catch(e){}DB=await claude.use("db")}}catch(e){}
+  store=(window.FB_CONFIG&&window.firebase)?fbStore():(DB?dbStore():localStore());
+  if(store.fb)await store.signed;
+  $("pnote").textContent=store.fb?"Asli server mode. Aapka partner ID: "+store.uid()+" (approval ke liye owner ko bhejiye)":DB?"Live mode: jo bhi login karke yeh page khole hai, use order turant dikhega.":"Demo mode: order sirf isi browser ke tabs me dikhega (live sync abhi uplabdh nahi).";
+})();
+function fbStore(){
+  firebase.initializeApp(window.FB_CONFIG);
+  const fs=firebase.firestore(),au=firebase.auth(),C=fs.collection("orders"),cache={};
+  const signed=au.currentUser?Promise.resolve():au.signInAnonymously();
+  return{fb:true,signed,uid:()=>au.currentUser&&au.currentUser.uid,
+   add:async o=>{await signed;const {n,m,l,...pub}=o;pub.uid=au.currentUser.uid;
+     const ref=C.doc(),b=fs.batch();b.set(ref,pub);b.set(ref.collection("private").doc("contact"),{n,m,l});await b.commit()},
+   sub:cb=>{let last=[];const push=ids=>cb(last.map(o=>({...o,...(cache[o.id]||{})})),ids);
+     return C.orderBy("ts","desc").limit(40).onSnapshot(s=>{
+       last=s.docs.map(d=>({...d.data(),id:d.id}));
+       push(s.docChanges().filter(c=>c.type==="added").map(c=>c.doc.id));
+       last.filter(o=>o.byUid===au.currentUser.uid&&!cache[o.id]).forEach(o=>{cache[o.id]={};C.doc(o.id).collection("private").doc("contact").get().then(d=>{cache[o.id]=d.data()||{};push([])}).catch(()=>{delete cache[o.id]})});
+     },()=>{$("pst").textContent="Abhi partner approval nahi mila. Upar likha apna partner ID owner ko bhejiye."})},
+   claim:async(id,by)=>{await signed;const ref=C.doc(id);return fs.runTransaction(async t=>{const d=await t.get(ref);if(!d.exists||d.data().st!=="naya")return false;t.update(ref,{st:"liya",by,byUid:au.currentUser.uid});return true})}};
+}
+function dbStore(){const C=DB.collection("orders");return{
+ add:o=>C.add(o),
+ sub:cb=>C.orderBy("ts","desc").limit(40).onSnapshot(s=>cb(s.docs.map(d=>({...d.data(),id:d.id})),s.docChanges().filter(c=>c.type==="added").map(c=>c.doc.id)),()=>{}),
+ claim:async(id,by)=>{const r=await DB.doc("orders/"+id).acquire({holder:UID});if(!r.acquired)return false;await DB.doc("orders/"+id).update({st:"liya",by});return true}}}
+function localStore(){const L=[],cbs=[];let bc=null;try{bc=new BroadcastChannel("gs-orders")}catch(e){}
+ const fire=ids=>cbs.forEach(f=>f(L.slice().sort((a,b)=>b.ts-a.ts),ids));
+ const add=o=>{if(!L.find(x=>x.id===o.id)){L.push(o);fire([o.id])}};
+ const take=(id,by)=>{const o=L.find(x=>x.id===id);if(o&&o.st==="naya"){o.st="liya";o.by=by;fire([]);return true}return false};
+ if(bc)bc.onmessage=e=>e.data.k==="a"?add(e.data.o):take(e.data.id,e.data.by);
+ return{add:async o=>{o.id=String(Date.now())+Math.random().toString(36).slice(2,6);add(o);bc&&bc.postMessage({k:"a",o})},
+  sub:cb=>{cbs.push(cb);cb(L.slice(),[]);return()=>{cbs.splice(cbs.indexOf(cb),1)}},
+  claim:async(id,by)=>{const r=take(id,by);if(r&&bc)bc.postMessage({k:"t",id,by});return r}}}
+function getPos(){return new Promise((res,rej)=>navigator.geolocation?navigator.geolocation.getCurrentPosition(p=>res({lat:p.coords.latitude,lng:p.coords.longitude}),rej,{timeout:8000}):rej())}
+async function pushOrder(o,geo){
+  o.ts=Date.now();o.st="naya";
+  if(geo){try{const p=await getPos();o.lat=p.lat;o.lng=p.lng}catch(e){}}
+  try{await ready;await store.add(o)}catch(e){}
+}
+const dist=(a,b,c,d)=>{const r=x=>x*Math.PI/180,h=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 12742*Math.asin(Math.sqrt(h))};
+function km(o){return P&&P.lat!=null&&o.lat!=null?dist(P.lat,P.lng,o.lat,o.lng):null}
+function match(o){
+  if(!P)return false;
+  if(P.cats.length&&!P.cats.includes(o.cid)&&!(o.ty==="d"&&P.cats.includes("del")))return false;
+  if(!P.areas.length&&!P.rad)return true;
+  const k=km(o);return P.areas.includes(o.a)||(P.rad&&k!=null&&k<=P.rad);
+}
+function beep(){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();ac.resume();[0,.25,.5].forEach((t,i)=>{const o=ac.createOscillator(),g=ac.createGain(),s=ac.currentTime+t;o.frequency.value=i%2?880:1175;g.gain.setValueAtTime(.3,s);g.gain.exponentialRampToValueAtTime(.001,s+.2);o.connect(g);g.connect(ac.destination);o.start(s);o.stop(s+.2)})}catch(e){}}
+function notify(o){
+  const k=km(o);
+  $("toast").textContent=`Naya order: ${o.svc} · ${o.a}${k!=null?" · "+k.toFixed(1)+" km":""}`;
+  $("toast").hidden=false;clearTimeout(notify.t);notify.t=setTimeout(()=>{$("toast").hidden=true},9000);
+  beep();try{navigator.vibrate&&navigator.vibrate([200,100,200])}catch(e){}
+  const t=document.title;document.title="🔔 Naya order!";setTimeout(()=>{document.title=t},6000);
+}
+function ago(ts){const m=Math.round((Date.now()-ts)/60000);return m<1?"abhi":m+" min pehle"}
+function renderP(){
+  const l=ORD.filter(o=>match(o)&&(o.st==="naya"||o.by===P.name)).slice(0,15);
+  $("plist2").innerHTML=l.length?l.map(o=>{const k=km(o),mine=o.st==="liya";return `<div class="prov"><div><h3>${esc(o.svc)}${o.t.includes("turant")?" ⚡":""}</h3><p>${esc(o.a)}${k!=null?" · "+k.toFixed(1)+" km":""} · ${esc(o.mode)} · ${esc(o.d)}, ${esc(o.t)} · ${ago(o.ts)}</p>${o.x?`<p>${esc(o.x)}</p>`:""}${mine?`<p><b>${esc(o.n)}</b>, ${esc(o.l)}<br><a href="tel:${esc(o.m)}">Call ${esc(o.m)}</a> · <a href="https://wa.me/91${esc(o.m)}" target="_blank" rel="noopener">WhatsApp</a></p>`:""}</div>${mine?`<span class="price">Aapka order</span>`:`<button class="btn" data-acc="${esc(o.id)}">Mai karunga</button>`}</div>`}).join(""):`<p class="note">Abhi koi naya order nahi. Aate hi awaaz ke saath alert milega.</p>`;
+}
+let pp={};try{pp=JSON.parse(localStorage.getItem("gs-pp")||"{}")}catch(e){}
+$("pcs").innerHTML=`<label><input type="checkbox" name="pc" value="del"> 🛵 Delivery partner (sab delivery)</label>`+CATS.map(c=>`<label><input type="checkbox" name="pc" value="${c.id}"${(pp.c||[]).includes(c.id)?" checked":""}> ${c.e} ${c.n}</label>`).join("");
+$("pas").innerHTML=AREAS.map(a=>`<label><input type="checkbox" name="pa" value="${a}"${(pp.a||[]).includes(a)?" checked":""}> ${a}</label>`).join("");
+$("pn").value=pp.n||"";$("prad").value=pp.r||0;
+if(GROUP){$("grp").href=GROUP;$("grpw").hidden=false}
+$("ppbtn").addEventListener("click",()=>show("partner"));
+$("toast").addEventListener("click",()=>{$("toast").hidden=true;show("partner")});
+$("pf").addEventListener("submit",async e=>{
+  e.preventDefault();await ready;
+  const fd=new FormData(e.target),rad=+fd.get("rad");
+  P={name:(fd.get("pn")||"").trim()||"Partner",cats:fd.getAll("pc"),areas:fd.getAll("pa"),rad};
+  let msg="";
+  if(rad){try{const p=await getPos();P.lat=p.lat;P.lng=p.lng}catch(err){P.rad=0;msg="Location nahi mili, sirf mohalla se match hoga. "}}
+  try{localStorage.setItem("gs-pp",JSON.stringify({n:P.name,c:P.cats,a:P.areas,r:P.rad}))}catch(err){}
+  beep();first=true;if(unsub)unsub();
+  unsub=store.sub((l,ids)=>{ORD=l;renderP();if(!first)ids.map(id=>l.find(o=>o.id===id)).filter(o=>o&&o.st==="naya"&&match(o)).forEach(notify);first=false});
+  $("plive").classList.remove("hidden");$("pst").textContent=msg+"🔔 Alert chalu hai. Awaaz ke liye yeh page khula rakhiye.";
+});
+$("plist2").addEventListener("click",async e=>{
+  const b=e.target.closest("[data-acc]");if(!b)return;b.disabled=true;let ok=false;
+  try{ok=await store.claim(b.dataset.acc,P.name)}catch(err){}
+  $("pst").textContent=ok?"Order aapka hai. Customer se sampark kijiye.":"Yeh order kisi aur ne le liya.";
+  if(!ok)b.textContent="Le liya gaya";
+});
+$("ptest").addEventListener("click",()=>pushOrder({cid:(P&&P.cats[0]&&P.cats[0]!=="del"?P.cats[0]:"elec"),ty:"s",svc:"Test order",pn:"-",mode:V,n:"Test grahak",m:"9999999999",a:(P&&P.areas[0])||"Civil Lines",l:"Test pata",d:today,t:"Abhi",x:"Yeh test order hai"},false));
+renderCats();renderMine();
+</script>
+</body>
+</html>
